@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#">
+
+    <!-- Classes -->
+    <rdf:Description rdf:about="#Subject">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:label>Subject</rdfs:label>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#MathTopic">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:label>MathTopic</rdfs:label>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#LearningResource">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:label>LearningResource</rdfs:label>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#LearningGoal">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:label>LearningGoal</rdfs:label>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#Student">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:label>Student</rdfs:label>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#Assessment">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:label>Assessment</rdfs:label>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#SkillLevel">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:label>SkillLevel</rdfs:label>
+    </rdf:Description>
+
+    <!-- Properties -->
+    <rdf:Description rdf:about="#hasTopic">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+        <rdfs:domain rdf:resource="#Subject"/>
+        <rdfs:range rdf:resource="#MathTopic"/>
+        <rdfs:label>hasTopic</rdfs:label>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#hasResource">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+        <rdfs:domain rdf:resource="#MathTopic"/>
+        <rdfs:range rdf:resource="#LearningResource"/>
+        <rdfs:label>hasResource</rdfs:label>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#hasGoal">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+        <rdfs:domain rdf:resource="#MathTopic"/>
+        <rdfs:range rdf:resource="#LearningGoal"/>
+        <rdfs:label>hasGoal</rdfs:label>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#attends">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+        <rdfs:domain rdf:resource="#Student"/>
+        <rdfs:range rdf:resource="#Assessment"/>
+        <rdfs:label>attends</rdfs:label>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#hasSkillLevel">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+        <rdfs:domain rdf:resource="#Student"/>
+        <rdfs:range rdf:resource="#SkillLevel"/>
+        <rdfs:label>hasSkillLevel</rdfs:label>
+    </rdf:Description>
+
+    <!-- Instances (Examples) -->
+    <rdf:Description rdf:about="#Algebra">
+        <rdf:type rdf:resource="#Subject"/>
+        <rdfs:label>Algebra</rdfs:label>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#LinearEquations">
+        <rdf:type rdf:resource="#MathTopic"/>
+        <rdfs:label>Linear Equations</rdfs:label>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#AlgebraResource1">
+        <rdf:type rdf:resource="#LearningResource"/>
+        <rdfs:label>Algebra Textbook</rdfs:label>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#GoalSolveLinearEquations">
+        <rdf:type rdf:resource="#LearningGoal"/>
+        <rdfs:label>Solve Linear Equations</rdfs:label>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#Harry">
+        <rdf:type rdf:resource="#Student"/>
+        <rdfs:label>Harry</rdfs:label>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#Quiz1">
+        <rdf:type rdf:resource="#Assessment"/>
+        <rdfs:label>Math Quiz 1</rdfs:label>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#BeginnerSkill">
+        <rdf:type rdf:resource="#SkillLevel"/>
+        <rdfs:label>Beginner</rdfs:label>
+    </rdf:Description>
+
+    <!-- Relationships -->
+    <rdf:Description rdf:about="#Algebra">
+        <rdf:type rdf:resource="#Subject"/>
+        <rdfs:label>Algebra</rdfs:label>
+        <hasTopic rdf:resource="#LinearEquations"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#LinearEquations">
+        <hasResource rdf:resource="#AlgebraResource1"/>
+        <hasGoal rdf:resource="#GoalSolveLinearEquations"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#Harry">
+        <attends rdf:resource="#Quiz1"/>
+        <hasSkillLevel rdf:resource="#BeginnerSkill"/>
+    </rdf:Description>
+
+</rdf:RDF>
